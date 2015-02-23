@@ -1,4 +1,4 @@
-brian = User.create(username: "Bsheridan12", 
+brian = User.create(username: "bsheridan12", 
                     email: "bsheridan12@gmail.com",
                     first_name: "Brian",
                     last_name: "Sheridan",

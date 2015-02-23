@@ -7,8 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+    <!-- Logout Button if a User is signed in -->
+    <% if @user && !@user.id.nil? %>
+      <%= button_to("Logout", { controller: "sessions", action: "destroy"}, method: "get") %>
+    <% else %>
+      <div>  
+        <%= button_to("Login", {controller: "sessions", action: "new"}, method: "get") %>
+      </div>
+    <% end %>
 
-<%= yield %>
-
+    <%= yield %>
+  </div>
 </body>
 </html>

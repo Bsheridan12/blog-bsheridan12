@@ -1,0 +1,21 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.username %>!</h1>
+
+  <div id="nav_bar">
+    <%= link_to("New Post", {action: "new"}) %>
+  </div>
+<% end %>
+
+
+
+<h3>All Posts:</h3>
+  <% @posts.sort.each do |post| %>
+  <ul>
+    <li><%= link_to( post.title, post_path(post)) %>
+      <ul><li>By: <%= post.blog.author.username %></li></ul>
+    </li>
+    <% if @user == post.blog.author %>
+      <%= button_to("Edit Post", [:edit, post], method: "get") %>
+    <% end %>
+  </ul>
+  <% end %>
